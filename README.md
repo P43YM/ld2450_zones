@@ -37,7 +37,7 @@ Add the component to your ESPHome config:
 external_components:
   - source:
       type: git
-      url: https://github.com/YOUR_USER/YOUR_REPO
+      url: https://github.com/P43YM/ld2450_zones
       ref: v1.0.0
     components: [ ld2450_zones ]
 ```
@@ -46,7 +46,7 @@ Or the short form:
 
 ```yaml
 external_components:
-  - source: github://YOUR_USER/YOUR_REPO@v1.0.0
+  - source: github://P43YM/ld2450_zones@v1.0.0
     components: [ ld2450_zones ]
 ```
 
