@@ -1,6 +1,6 @@
 # ld2450_zones
 
-![Russian language badge](https://img.shields.io/badge/lang-ru-red.svg) [![en](https://img.shields.io/badge/lang-en-blue.svg)](README.md)
+[![ru](https://img.shields.io/badge/lang-ru-red.svg)](README-ru.md) [![en](https://img.shields.io/badge/lang-en-blue.svg)](README.md)
 
 <img width="825" height="652" alt="Скриншот от 2026-09-21 182104" src="https://github.com/user-attachments/assets/5cb3e847-ff2c-47e6-b0a6-597a2b8be88b" />
 
