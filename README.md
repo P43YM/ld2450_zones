@@ -38,19 +38,8 @@ external_components:
   - source:
       type: git
       url: https://github.com/P43YM/ld2450_zones
-      ref: v1.0.0
     components: [ ld2450_zones ]
 ```
-
-Or the short form:
-
-```yaml
-external_components:
-  - source: github://P43YM/ld2450_zones@v1.0.0
-    components: [ ld2450_zones ]
-```
-
-Pinning a tag keeps your builds reproducible. If you'd rather track a branch, use its name as `ref` and add `refresh: 1d` so ESPHome re-checks it once a day.
 
 Working from a local copy? Point `path` at the folder that contains `ld2450_zones/`:
 
