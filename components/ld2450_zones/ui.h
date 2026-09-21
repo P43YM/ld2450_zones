@@ -1,0 +1,745 @@
+// Сгенерировано gen_ui_h.py из ui/ui.html, не редактируйте вручную.
+#pragma once
+
+namespace esphome {
+namespace ld2450_zones {
+
+static const char UI_HTML[] = R"HTML(<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LD2450 · zones</title>
+<style>
+:root{
+  --bg:#e9ede8; --paper:#f7f8f3; --panel:#ffffff; --ink:#1c2630; --mute:#68757f;
+  --rule:#d5dbd4; --accent:#1f5eff; --accent-ink:#ffffff; --target:#e0245e; --ok:#1f9d6b; --bad:#c62a3a;
+  --font:"Avenir Next","Segoe UI Variable Text","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:15px/1.45 var(--font);-webkit-text-size-adjust:100%}
+h1{font-size:19px;font-weight:650;margin:0;letter-spacing:.1px}
+h2{font-size:15px;font-weight:650;margin:0 0 8px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 18px;border-bottom:1px solid var(--rule);background:var(--panel)}
+.top-r{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.seg.small button{padding:3px 10px;font-size:13px}
+.status{display:flex;align-items:center;gap:8px;color:var(--mute);font-variant-numeric:tabular-nums}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--bad)}
+.dot.on{background:var(--ok)}
+.dot.warn{background:#d99a1a}
+.app{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:16px;padding:16px;max-width:1240px;margin:0 auto;align-items:start}
+@media (max-width:860px){.app{grid-template-columns:1fr;padding:10px}}
+.board,.card{background:var(--panel);border:1px solid var(--rule);border-radius:10px}
+.board{padding:12px}
+.card{padding:14px;margin-bottom:14px}
+.side .card:last-child{margin-bottom:0}
+.tools,.helper{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
+.tools{margin-bottom:10px}
+.helper{margin-top:10px;min-height:38px}
+.hint{color:var(--mute);font-size:13px;flex:1 1 220px}
+.seg{display:inline-flex;border:1px solid var(--rule);border-radius:8px;overflow:hidden}
+.seg button{border:0;border-right:1px solid var(--rule);border-radius:0}
+.seg button:last-child{border-right:0}
+.seg button.on{background:var(--ink);color:#fff}
+button{font:inherit;color:var(--ink);background:var(--panel);border:1px solid var(--rule);border-radius:8px;padding:6px 12px;cursor:pointer}
+button:hover{border-color:#aeb8b0}
+button.pri{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+button:disabled{opacity:.45;cursor:default}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+kbd{font:12px var(--font);border:1px solid currentColor;border-radius:4px;padding:0 4px;opacity:.6;margin-left:4px}
+select,input[type=number]{font:inherit;padding:5px 8px;border:1px solid var(--rule);border-radius:8px;background:var(--panel);color:var(--ink)}
+label{display:inline-flex;align-items:center;gap:6px;color:var(--mute)}
+.stage{position:relative;width:100%;border-radius:8px;overflow:hidden;border:1px solid var(--rule)}
+canvas{display:block;width:100%;touch-action:none;cursor:crosshair}
+ul{list-style:none;margin:0;padding:0}
+#zl li{display:flex;align-items:center;gap:10px;padding:8px 8px;border-radius:8px;cursor:pointer;border:1px solid transparent}
+#zl li:hover{background:#f1f4f0}
+#zl li.sel{border-color:var(--ink);background:#f1f4f0}
+.sw{width:14px;height:14px;border-radius:4px;flex:none}
+.nm{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cnt{font-variant-numeric:tabular-nums;min-width:112px;text-align:right;color:var(--mute)}
+.cnt.on{color:var(--ok);font-weight:650}
+.mod{color:var(--accent);font-size:11px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:13.5px}
+th{font-weight:500;color:var(--mute);text-align:left;padding:2px 4px 6px}
+td{padding:5px 4px;border-top:1px solid var(--rule)}
+tr.off td{color:#a3adb4}
+.empty{color:var(--mute);font-size:13.5px}
+dl.diag{margin:0;display:grid;grid-template-columns:auto 1fr;gap:3px 12px;font-size:13.5px;font-variant-numeric:tabular-nums}
+dl.diag dt{color:var(--mute)} dl.diag dd{margin:0;text-align:right}
+dd.bad{color:var(--bad);font-weight:650} dd.good{color:var(--ok)}
+#evlog{margin:10px 0 0;padding:0;font-size:12.5px;color:var(--mute);max-height:190px;overflow:auto}
+#evlog li{padding:2px 0;border-top:1px solid var(--rule)}
+#evlog b{color:var(--ink);font-weight:600}
+#toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);background:var(--ink);color:#fff;padding:9px 16px;border-radius:8px;opacity:0;pointer-events:none;transition:opacity .18s,transform .18s}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+#toast.bad{background:var(--bad)}
+@media (prefers-reduced-motion:reduce){#toast{transition:none}}
+</style>
+</head>
+<body>
+<header class="top">
+  <h1 data-i18n="title"></h1>
+  <div class="top-r">
+    <div class="status"><span id="dot" class="dot"></span><span id="stat"></span></div>
+    <div class="seg small" id="lang" role="group" aria-label="Language">
+      <button data-l="ru">RU</button><button data-l="en">EN</button>
+    </div>
+  </div>
+</header>
+
+<main class="app">
+  <section class="board">
+    <div class="tools">
+      <div class="seg" id="modes" role="group" data-i18n-aria="tool_aria">
+        <button data-m="paint" class="on" data-i18n="m_paint"></button>
+        <button data-m="rect" data-i18n="m_rect"></button>
+        <button data-m="poly" data-i18n="m_poly"></button>
+      </div>
+      <div class="seg" id="ops" role="group" data-i18n-aria="op_aria">
+        <button data-o="1" class="on" data-i18n="op_add"></button>
+        <button data-o="0" data-i18n="op_erase"></button>
+      </div>
+      <label id="brushl"><span data-i18n="brush"></span>
+        <select id="brush"><option value="0">1×1</option><option value="1">3×3</option><option value="2">5×5</option></select>
+      </label>
+      <label><span data-i18n="anchor"></span>
+        <select id="tsel"><option value="-1" data-i18n="any"></option><option value="0">1</option><option value="1">2</option><option value="2">3</option></select>
+      </label>
+      <label><input type="checkbox" id="trails" checked><span data-i18n="trails"></span></label>
+      <button id="pause"></button>
+    </div>
+    <div class="stage" id="stage"><canvas id="cv"></canvas></div>
+    <div class="helper" id="helper"></div>
+  </section>
+
+  <aside class="side">
+    <div class="card">
+      <h2 data-i18n="z_title"></h2>
+      <ul id="zl"></ul>
+      <div id="zempty" class="empty" data-i18n-html="z_empty" hidden></div>
+      <div id="zed" hidden>
+        <div class="row" id="namerow">
+          <label><span data-i18n="z_name"></span>
+            <input type="text" id="zname" maxlength="22" style="width:190px">
+          </label>
+        </div>
+        <div class="row" id="holdrow">
+          <label><span data-i18n="z_hold"></span>
+            <input type="number" id="hold" min="0" max="3600" step="1" style="width:84px">
+          </label>
+        </div>
+        <div class="empty" id="ignnote" data-i18n="ign_note" hidden></div>
+        <div class="row">
+          <button id="zsave" class="pri" data-i18n="z_save"></button>
+          <button id="zrevert" data-i18n="z_revert"></button>
+          <button id="zclear" data-i18n="z_clear"></button>
+        </div>
+      </div>
+      <div class="row"><button id="saveall"></button></div>
+    </div>
+
+    <div class="card">
+      <h2 data-i18n="f_title"></h2>
+      <div class="row"><label><span data-i18n="f_on_a"></span>
+        <input type="number" id="fon" min="1" max="32" style="width:64px"><span data-i18n="f_on_b"></span></label></div>
+      <div class="row"><label><span data-i18n="f_win_a"></span>
+        <input type="number" id="fwin" min="1" max="32" style="width:64px"><span data-i18n="f_win_b"></span></label></div>
+      <div class="row"><label><span data-i18n="f_hold"></span>
+        <input type="number" id="fhold" min="0" max="3600" style="width:84px"></label></div>
+      <p class="empty" style="margin:10px 0 0" data-i18n="f_help"></p>
+      <div class="row"><button id="fsave" class="pri" data-i18n="f_save"></button></div>
+    </div>
+
+    <div class="card">
+      <h2 data-i18n="d_title"></h2>
+      <dl class="diag" id="diag"></dl>
+      <ul id="evlog"></ul>
+    </div>
+
+    <div class="card">
+      <h2 data-i18n="t_title"></h2>
+      <table>
+        <thead><tr><th data-i18n="th_n"></th><th data-i18n="th_x"></th><th data-i18n="th_y"></th><th data-i18n="th_v"></th><th data-i18n="th_z"></th></tr></thead>
+        <tbody id="tt"></tbody>
+      </table>
+    </div>
+  </aside>
+</main>
+<div id="toast" role="status"></div>
+
+<script>
+(()=>{
+"use strict";
+const DEMO=/[?&]demo/.test(location.search)||location.protocol==='file:';
+const $=s=>document.querySelector(s);
+
+/* ---------- перевод / translations ---------- */
+const L={
+ru:{
+ doc_title:'LD2450 · зоны', title:'Радар LD2450: зоны', connecting:'подключение…',
+ tool_aria:'Инструмент', op_aria:'Действие',
+ m_paint:'Кисть', m_rect:'Прямоугольник', m_poly:'Многоугольник', op_add:'Добавить', op_erase:'Стереть',
+ brush:'Кисть', anchor:'Цель для привязки', any:'любая', trails:'Следы', pause:'Пауза', resume:'Продолжить',
+ z_title:'Зоны', z_empty:'В конфиге ESPHome нет зон. Добавьте их в раздел <b>zones</b> компонента ld2450_zones.',
+ z_name:'Название', z_hold:'Держать занятой после ухода, с',
+ ign_note:'Цели в закрашенных клетках полностью игнорируются: их не видят ни зоны, ни общее присутствие. Закрасьте вентилятор, занавеску, растение или другой источник ложных целей.',
+ z_save:'Сохранить зону', z_revert:'Отменить правки', z_clear:'Очистить клетки',
+ save_all:'Сохранить всё', save_all_n:n=>`Сохранить всё (${n})`, ign_name:'Игнорировать (шум)', unsaved:'Есть несохранённые правки',
+ f_title:'Фильтрация', f_on_a:'Зона занята, если цель замечена', f_on_b:'раз', f_win_a:'из последних', f_win_b:'кадров',
+ f_hold:'Общее присутствие держать, с',
+ f_help:'Радар даёт около 10 кадров в секунду. Больше «раз» означает меньше ложных срабатываний. Больше «кадров» при меньшем «раз» лучше удерживает неподвижного человека. Цифры «3/10» у зон показывают, сколько кадров из окна содержали цель.',
+ f_save:'Применить фильтр',
+ d_title:'Диагностика', t_title:'Цели', th_n:'№', th_x:'x, м', th_y:'y, м', th_v:'v, см/с', th_z:'Зоны',
+ d_fw:'Прошивка', d_old:'старая, без диагностики', d_ok:'Кадров принято', d_bad:'Битых кадров', d_skip:'Пропущено байт',
+ d_gap:'Макс. пауза между кадрами', d_lag:'Макс. задержка цикла ESP', d_seen:'Целей радар видит / учтено',
+ d_pres:'Присутствие', d_pres_on:'занято', d_pres_off:'свободно', d_hold:'Удержание / фильтр', d_last:'Последняя учтённая цель',
+ d_ago:n=>`${n} с назад`, d_filter:(h,o,w)=>`${h} с · ${o} из ${w}`, u_ms:'мс', u_m:'м',
+ st_off:'нет связи с ESP32', st_radar:'радар не отвечает', st_fps:f=>`${f} кадров/с`, st_pres:' · есть присутствие',
+ st_load_fail:'не удалось загрузить зоны: ',
+ z_occ:'занята', z_occ_n:n=>`занята, ${n}`, z_free:'свободна',
+ t_none:'нет цели', t_out:'вне области поля', t_ign:'в зоне игнора',
+ h_poly_v:'Вершина в точке цели', h_poly_u:'Убрать вершину', h_poly_f:'Залить контур', h_reset:'Сбросить',
+ h_poly_hint:n=>`${n?`Вершин: ${n}. `:''}Кликайте по полю или встаньте в угол зоны и нажмите «Вершина в точке цели». Клик у первой вершины замыкает контур.`,
+ h_rect_1:'Первый угол в точке цели', h_rect_2:'Второй угол в точке цели',
+ h_rect_hint:'Протяните прямоугольник мышью или задайте два угла по положению цели.',
+ h_paint_hint:'Кликайте и ведите по клеткам, чтобы добавить или стереть их в выбранной зоне.',
+ to_poly3:'Для контура нужно минимум три вершины', to_notarget:'Цель не видна. Встаньте в нужную точку.',
+ to_saved:'Сохранено на устройстве', to_fail:m=>`Не удалось сохранить: ${m}`,
+ to_fbad:'Проверьте значения: «раз» не больше «кадров», кадров от 1 до 32', to_fok:'Фильтр применён и сохранён',
+ ev_on:'<b>Общее присутствие: ВКЛ</b>',
+ ev_off:(ga,h)=>`<b>Общее присутствие: ВЫКЛ</b>, последняя учтённая цель ${ga} с назад (удержание ${h} с)`,
+ ev_lost:i=>`Цель ${i} пропала`, ev_back:(i,sec)=>`Цель ${i} появилась (не было ${sec} с)`,
+ demo:['Диван','Рабочий стол','Проход']
+},
+en:{
+ doc_title:'LD2450 · zones', title:'LD2450 radar: zones', connecting:'connecting…',
+ tool_aria:'Tool', op_aria:'Action',
+ m_paint:'Brush', m_rect:'Rectangle', m_poly:'Polygon', op_add:'Add', op_erase:'Erase',
+ brush:'Brush', anchor:'Snap to target', any:'any', trails:'Trails', pause:'Pause', resume:'Resume',
+ z_title:'Zones', z_empty:'There are no zones in the ESPHome config. Add them under <b>zones</b> of the ld2450_zones component.',
+ z_name:'Name', z_hold:'Keep occupied after leaving, s',
+ ign_note:'Targets in painted cells are ignored completely: neither zones nor overall presence see them. Paint over a fan, curtain, plant or any other source of false targets.',
+ z_save:'Save zone', z_revert:'Discard changes', z_clear:'Clear cells',
+ save_all:'Save all', save_all_n:n=>`Save all (${n})`, ign_name:'Ignore (noise)', unsaved:'Unsaved changes',
+ f_title:'Filtering', f_on_a:'Zone is occupied if a target is seen', f_on_b:'times', f_win_a:'in the last', f_win_b:'frames',
+ f_hold:'Hold overall presence for, s',
+ f_help:'The radar delivers about 10 frames per second. A higher "times" value means fewer false triggers. A larger "frames" window with a lower "times" value holds a motionless person better. The "3/10" numbers next to zones show how many frames in the window contained a target.',
+ f_save:'Apply filter',
+ d_title:'Diagnostics', t_title:'Targets', th_n:'#', th_x:'x, m', th_y:'y, m', th_v:'v, cm/s', th_z:'Zones',
+ d_fw:'Firmware', d_old:'old build, no diagnostics', d_ok:'Frames received', d_bad:'Bad frames', d_skip:'Bytes skipped',
+ d_gap:'Max gap between frames', d_lag:'Max ESP loop delay', d_seen:'Targets seen / counted',
+ d_pres:'Presence', d_pres_on:'occupied', d_pres_off:'free', d_hold:'Hold / filter', d_last:'Last counted target',
+ d_ago:n=>`${n} s ago`, d_filter:(h,o,w)=>`${h} s · ${o} of ${w}`, u_ms:'ms', u_m:'m',
+ st_off:'no connection to ESP32', st_radar:'radar not responding', st_fps:f=>`${f} frames/s`, st_pres:' · presence detected',
+ st_load_fail:'failed to load zones: ',
+ z_occ:'occupied', z_occ_n:n=>`occupied, ${n}`, z_free:'free',
+ t_none:'no target', t_out:'outside the field', t_ign:'in the ignore zone',
+ h_poly_v:'Vertex at target', h_poly_u:'Remove vertex', h_poly_f:'Fill outline', h_reset:'Reset',
+ h_poly_hint:n=>`${n?`Vertices: ${n}. `:''}Click on the field, or stand in a corner of the zone and press "Vertex at target". Click near the first vertex to close the outline.`,
+ h_rect_1:'First corner at target', h_rect_2:'Second corner at target',
+ h_rect_hint:'Drag a rectangle with the mouse, or set two corners from the target position.',
+ h_paint_hint:'Click and drag over cells to add or erase them in the selected zone.',
+ to_poly3:'An outline needs at least three vertices', to_notarget:'No target visible. Stand at the desired spot.',
+ to_saved:'Saved to the device', to_fail:m=>`Save failed: ${m}`,
+ to_fbad:'Check the values: "times" must not exceed "frames", frames must be 1 to 32', to_fok:'Filter applied and saved',
+ ev_on:'<b>Overall presence: ON</b>',
+ ev_off:(ga,h)=>`<b>Overall presence: OFF</b>, last counted target ${ga} s ago (hold ${h} s)`,
+ ev_lost:i=>`Target ${i} lost`, ev_back:(i,sec)=>`Target ${i} appeared (gone for ${sec} s)`,
+ demo:['Sofa','Desk','Hallway']
+}};
+let lang='en';
+try{lang=localStorage.getItem('ld2450_lang')||'';}catch(e){}
+if(lang!=='ru'&&lang!=='en')lang=/^ru\b/i.test(navigator.language||'')?'ru':'en';
+function t(k,...a){const v=L[lang][k];return typeof v==='function'?v(...a):v;}
+function applyStatic(){
+  document.querySelectorAll('[data-i18n]').forEach(e=>{e.textContent=t(e.dataset.i18n);});
+  document.querySelectorAll('[data-i18n-html]').forEach(e=>{e.innerHTML=t(e.dataset.i18nHtml);});
+  document.querySelectorAll('[data-i18n-aria]').forEach(e=>e.setAttribute('aria-label',t(e.dataset.i18nAria)));
+  document.documentElement.lang=lang; document.title=t('doc_title');
+  [...$('#lang').children].forEach(b=>b.classList.toggle('on',b.dataset.l===lang));
+  $('#pause').textContent=t(paused?'resume':'pause');
+}
+function setLang(l){
+  lang=l; try{localStorage.setItem('ld2450_lang',l);}catch(e){}
+  applyStatic(); renderLog();
+  if(G){buildList();renderHelper();updateSide();}
+  else $('#stat').textContent=t('connecting');
+  need=true;
+}
+
+const ZIGN='#66727c';
+const PAL=['#2a9d8f','#e08a1e','#7b61c9','#3b82c4','#d1603d','#7a9a2e','#c2578c','#4c8b6b'];
+const cv=$('#cv'),ctx=cv.getContext('2d');
+
+let G=null;                       // геометрия и зоны
+let S={t:[],z:[],fps:0,age:0,p:0};// последнее состояние радара
+let online=false,paused=false,need=true;
+let mode='paint',op=1,brush=0,sel=0,tsel=-1;
+let poly=[],rectA=null,drag=null,hover=-1;
+const trails=[[],[],[]];
+let cw=0,ch=0,dpr=1,K=1;
+
+let toastTimer;
+function toast(msg,bad){
+  const t=$('#toast'); t.textContent=msg; t.className='show'+(bad?' bad':'');
+  clearTimeout(toastTimer); toastTimer=setTimeout(()=>{t.className='';},2800);
+}
+
+/* ---------- геометрия ---------- */
+const clampI=(v,a,b)=>Math.max(a,Math.min(b,v));
+const colOf=x=>clampI(Math.floor((x+G.w/2)/G.cell),0,G.cols-1);
+const rowOf=y=>clampI(Math.floor(y/G.cell),0,G.rows-1);
+const inside=(x,y)=>x>=-G.w/2&&x<G.w/2&&y>=0&&y<G.d;
+const cellAt=(x,y)=>inside(x,y)?rowOf(y)*G.cols+colOf(x):-1;
+const X=x=>(x+G.w/2)*K, Y=y=>ch-y*K;
+
+function resize(){
+  if(!G)return;
+  dpr=window.devicePixelRatio||1;
+  cw=$('#stage').clientWidth; K=cw/G.w; ch=Math.round(G.d*K);
+  cv.width=Math.round(cw*dpr); cv.height=Math.round(ch*dpr);
+  cv.style.height=ch+'px'; need=true;
+}
+
+/* ---------- загрузка ---------- */
+async function loadZones(){
+  let j;
+  if(DEMO) j=demoZones();
+  else{
+    const r=await fetch('/api/zones',{cache:'no-store'});
+    if(!r.ok) throw new Error(r.status);
+    j=await r.json();
+  }
+  G={cols:j.cols,rows:j.rows,cell:j.cell,w:j.w,d:j.d,cfg:j.cfg,
+     zones:j.zones.map(z=>({name:z.name,nameOrig:z.name,hold:z.hold,holdOrig:z.hold,
+       cells:Uint8Array.from(z.cells,c=>c==='1'?1:0)}))};
+  G.zones.push({name:'',nameOrig:'',hold:0,holdOrig:0,ign:true,
+       cells:Uint8Array.from(j.ignore,c=>c==='1'?1:0)});
+  G.zones.forEach(z=>z.orig=z.cells.slice());
+  $('#fon').value=j.cfg.on; $('#fwin').value=j.cfg.win; $('#fhold').value=j.cfg.hold;
+  sel=Math.min(sel,G.zones.length-1);
+  resize(); buildList(); renderHelper(); refreshDirty();
+}
+
+/* ---------- редактирование ---------- */
+const put=(zi,i,v)=>{G.zones[zi].cells[i]=v;};
+const zname=z=>z.ign?t('ign_name'):z.name;
+function brushAt(p){
+  if(!G.zones.length)return;
+  const i=cellAt(p.x,p.y); if(i<0)return;
+  const c=i%G.cols,r=(i/G.cols)|0;
+  for(let dy=-brush;dy<=brush;dy++)for(let dx=-brush;dx<=brush;dx++){
+    const cc=c+dx,rr=r+dy;
+    if(cc>=0&&cc<G.cols&&rr>=0&&rr<G.rows)put(sel,rr*G.cols+cc,op);
+  }
+  changed();
+}
+function rectCells(a,b){
+  return {c0:colOf(Math.min(a.x,b.x)),c1:colOf(Math.max(a.x,b.x)),r0:rowOf(Math.min(a.y,b.y)),r1:rowOf(Math.max(a.y,b.y))};
+}
+function fillRect(a,b){
+  if(!G.zones.length)return;
+  const q=rectCells(a,b);
+  for(let r=q.r0;r<=q.r1;r++)for(let c=q.c0;c<=q.c1;c++)put(sel,r*G.cols+c,op);
+  changed();
+}
+function inPoly(pts,x,y){
+  let o=false;
+  for(let i=0,j=pts.length-1;i<pts.length;j=i++){
+    const a=pts[i],b=pts[j];
+    if((a.y>y)!==(b.y>y)&&x<(b.x-a.x)*(y-a.y)/(b.y-a.y)+a.x)o=!o;
+  }
+  return o;
+}
+function fillPoly(){
+  if(!G.zones.length)return;
+  if(poly.length<3){toast(t('to_poly3'),1);return;}
+  for(let r=0;r<G.rows;r++)for(let c=0;c<G.cols;c++){
+    const x=-G.w/2+(c+.5)*G.cell,y=(r+.5)*G.cell;
+    if(inPoly(poly,x,y))put(sel,r*G.cols+c,op);
+  }
+  poly=[]; changed(); renderHelper();
+}
+function targetPoint(){
+  const a=S.t.filter((t,i)=>t.a&&(tsel<0||tsel===i));
+  return a.length?{x:a[0].x,y:a[0].y}:null;
+}
+function addVertexFromTarget(){
+  const p=targetPoint(); if(!p){toast(t('to_notarget'),1);return;}
+  if(mode==='poly'){poly.push(p);renderHelper();need=true;}
+  else if(mode==='rect'){
+    if(!rectA){rectA=p;renderHelper();need=true;}
+    else{fillRect(rectA,p);rectA=null;renderHelper();}
+  }
+}
+
+/* ---------- изменения и сохранение ---------- */
+const isDirty=z=>z.hold!==z.holdOrig||z.name!==z.nameOrig||z.cells.some((v,i)=>v!==z.orig[i]);
+function changed(){refreshDirty();need=true;}
+function refreshDirty(){
+  const lis=$('#zl').children; let n=0;
+  G.zones.forEach((z,i)=>{const d=isDirty(z);z._d=d;if(d)n++;if(lis[i])lis[i].querySelector('.mod').hidden=!d;});
+  $('#saveall').disabled=!n; $('#saveall').textContent=n?t('save_all_n',n):t('save_all');
+  const z=G.zones[sel];
+  $('#zsave').disabled=!z||!z._d; $('#zrevert').disabled=!z||!z._d;
+}
+async function saveZone(i){
+  const z=G.zones[i];
+  const idx=z.ign?255:i;
+  const body=`${idx},${z.hold}\n${z.name.replace(/[\r\n]/g,' ')}\n`+Array.from(z.cells,v=>v?'1':'0').join('');
+  if(!DEMO){
+    const r=await fetch('/api/zone',{method:'POST',body});
+    if(!r.ok)throw new Error('HTTP '+r.status);
+  }
+  z.orig=z.cells.slice(); z.holdOrig=z.hold; z.nameOrig=z.name;
+}
+async function saveMany(list){
+  try{for(const i of list)await saveZone(i);toast(t('to_saved'));}
+  catch(e){toast(t('to_fail',e.message),1);}
+  refreshDirty();
+}
+
+/* ---------- список зон и панель ---------- */
+function buildList(){
+  const ul=$('#zl'); ul.innerHTML='';
+  G.zones.forEach((z,i)=>{
+    const li=document.createElement('li');
+    li.innerHTML='<i class="sw"></i><span class="nm"></span><b class="mod" hidden>●</b><span class="cnt"></span>';
+    li.querySelector('.sw').style.background=z.ign?ZIGN:PAL[i%PAL.length];
+    li.querySelector('.nm').textContent=zname(z);
+    li.querySelector('.mod').title=t('unsaved');
+    li.onclick=()=>{sel=i;refreshSel();need=true;};
+    ul.append(li);
+  });
+  $('#zempty').hidden=G.zones.length>0;
+  refreshSel();
+}
+function refreshSel(){
+  [...$('#zl').children].forEach((li,i)=>li.classList.toggle('sel',i===sel));
+  const z=G.zones[sel]; $('#zed').hidden=!z;
+  if(z){
+    $('#hold').value=z.hold; $('#zname').value=z.name;
+    $('#namerow').hidden=$('#holdrow').hidden=!!z.ign; $('#ignnote').hidden=!z.ign;
+  }
+  refreshDirty();
+}
+function membership(t){
+  const i=cellAt(t.x,t.y); if(i<0)return [];
+  const r=[]; G.zones.forEach((z,zi)=>{if(z.cells[i])r.push(zi);}); return r;
+}
+const evLog=[]; let prevP=null; const prevA=[null,null,null], goneAt=[0,0,0];
+function renderLog(){
+  $('#evlog').innerHTML=evLog.map(e=>`<li>${e.t} ${t(e.k,...e.a)}</li>`).join('');
+}
+function logEv(k,...a){
+  evLog.unshift({t:new Date().toLocaleTimeString(lang==='ru'?'ru-RU':'en-GB'),k,a});
+  if(evLog.length>16)evLog.pop();
+  renderLog();
+}
+function trackEvents(){
+  const now=performance.now();
+  if(prevP!==null&&S.p!==prevP){
+    if(S.p)logEv('ev_on');
+    else logEv('ev_off',(S.ga/1000).toFixed(1),S.hold);
+  }
+  prevP=S.p;
+  S.t.forEach((tg,i)=>{
+    const a=!!tg.a;
+    if(prevA[i]!==null&&a!==prevA[i]){
+      if(!a){goneAt[i]=now;logEv('ev_lost',i+1);}
+      else logEv('ev_back',i+1,((now-goneAt[i])/1000).toFixed(1));
+    }
+    prevA[i]=a;
+  });
+}
+function renderDiag(){
+  const row=(k,v,cls)=>`<dt>${t(k)}</dt><dd class="${cls||''}">${v}</dd>`;
+  const seen=S.t.filter(x=>x.a).length, ms=t('u_ms');
+  $('#diag').innerHTML=
+    row('d_fw',S.b||t('d_old'),S.b?'':'bad')+
+    row('d_ok',S.ok??'—')+
+    row('d_bad',S.bad??'—',S.bad>0?'bad':'')+
+    row('d_skip',S.skip??'—')+
+    row('d_gap',(S.gap??'—')+' '+ms,S.gap>500?'bad':'')+
+    row('d_lag',(S.lag??'—')+' '+ms,S.lag>250?'bad':'')+
+    row('d_seen',`${seen} / ${S.n??'—'}`,seen!==S.n?'bad':'')+
+    row('d_pres',S.p?t('d_pres_on'):t('d_pres_off'),S.p?'good':'')+
+    row('d_hold',t('d_filter',S.hold??'—',S.on??'?',S.win??'?'))+
+    row('d_last',S.ga>=0?t('d_ago',(S.ga/1000).toFixed(1)):'—');
+}
+function updateSide(){
+  renderDiag();
+  const dot=$('#dot'),st=$('#stat');
+  if(!online){dot.className='dot';st.textContent=t('st_off');}
+  else if(S.age>2500){dot.className='dot warn';st.textContent=t('st_radar');}
+  else{dot.className='dot on';st.textContent=t('st_fps',S.fps.toFixed(1))+(S.p?t('st_pres'):'');}
+  if(!G)return;
+  [...$('#zl').children].forEach((li,i)=>{
+    const z=S.z[i],c=li.querySelector('.cnt');
+    if(!z){c.textContent='';return;}
+    c.textContent=(z.o?(z.c>1?t('z_occ_n',z.c):t('z_occ')):t('z_free'))+` ${z.h}/${S.win||'?'}`;
+    c.classList.toggle('on',!!z.o);
+  });
+  $('#tt').innerHTML=S.t.map((tg,i)=>{
+    if(!tg.a)return `<tr class="off"><td>${i+1}</td><td colspan="4">${t('t_none')}</td></tr>`;
+    const m=tg.s===2?t('t_out'):tg.s===3?t('t_ign'):(membership(tg).map(zi=>zname(G.zones[zi])).join(', ')||'—');
+    return `<tr><td>${i+1}</td><td>${(tg.x/1000).toFixed(2)}</td><td>${(tg.y/1000).toFixed(2)}</td><td>${tg.v}</td><td>${esc(m)}</td></tr>`;
+  }).join('');
+}
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+function renderHelper(){
+  const h=$('#helper');
+  let x='';
+  if(mode==='poly'){
+    x=`<button data-a="v">${t('h_poly_v')}<kbd>V</kbd></button>
+       <button data-a="u" ${poly.length?'':'disabled'}>${t('h_poly_u')}<kbd>⌫</kbd></button>
+       <button data-a="f" class="pri" ${poly.length>2?'':'disabled'}>${t('h_poly_f')}<kbd>Enter</kbd></button>
+       <button data-a="c" ${poly.length?'':'disabled'}>${t('h_reset')}<kbd>Esc</kbd></button>
+       <span class="hint">${t('h_poly_hint',poly.length)}</span>`;
+  }else if(mode==='rect'){
+    x=`<button data-a="v">${t(rectA?'h_rect_2':'h_rect_1')}<kbd>V</kbd></button>
+       <button data-a="c" ${rectA?'':'disabled'}>${t('h_reset')}<kbd>Esc</kbd></button>
+       <span class="hint">${t('h_rect_hint')}</span>`;
+  }else{
+    x=`<span class="hint">${t('h_paint_hint')}</span>`;
+  }
+  h.innerHTML=x;
+  $('#brushl').style.display=mode==='paint'?'':'none';
+}
+$('#helper').addEventListener('click',e=>{
+  const a=e.target.closest('button')?.dataset.a; if(!a)return;
+  if(a==='v')addVertexFromTarget();
+  if(a==='u'){poly.pop();renderHelper();need=true;}
+  if(a==='f')fillPoly();
+  if(a==='c'){poly=[];rectA=null;renderHelper();need=true;}
+});
+
+/* ---------- ввод ---------- */
+function ptr(e){
+  const r=cv.getBoundingClientRect();
+  const px=(e.clientX-r.left)*(cw/r.width),py=(e.clientY-r.top)*(ch/r.height);
+  return {x:px/K-G.w/2,y:(ch-py)/K,px,py};
+}
+cv.addEventListener('pointerdown',e=>{
+  if(!G)return; cv.setPointerCapture(e.pointerId);
+  const p=ptr(e);
+  if(mode==='paint'){drag={};brushAt(p);}
+  else if(mode==='rect'){drag={a:p,b:p};}
+  else if(mode==='poly'){
+    if(poly.length>2){
+      const f=poly[0];
+      if(Math.hypot(X(f.x)-p.px,Y(f.y)-p.py)<14){fillPoly();return;}
+    }
+    poly.push({x:p.x,y:p.y}); renderHelper();
+  }
+  need=true;
+});
+cv.addEventListener('pointermove',e=>{
+  if(!G)return; const p=ptr(e);
+  hover=cellAt(p.x,p.y);
+  if(drag){ if(mode==='paint')brushAt(p); else if(mode==='rect')drag.b=p; }
+  need=true;
+});
+cv.addEventListener('pointerup',()=>{
+  if(drag&&mode==='rect'&&drag.a)fillRect(drag.a,drag.b);
+  drag=null; need=true;
+});
+cv.addEventListener('pointerleave',()=>{hover=-1;need=true;});
+
+document.addEventListener('keydown',e=>{
+  if(/INPUT|SELECT|TEXTAREA/.test(e.target.tagName))return;
+  if(e.code==='KeyV')addVertexFromTarget();
+  else if(e.key==='Enter'&&mode==='poly')fillPoly();
+  else if(e.key==='Escape'){poly=[];rectA=null;renderHelper();need=true;}
+  else if(e.key==='Backspace'&&mode==='poly'){poly.pop();renderHelper();need=true;e.preventDefault();}
+});
+$('#modes').addEventListener('click',e=>{
+  const m=e.target.dataset.m; if(!m)return;
+  mode=m; poly=[]; rectA=null;
+  [...$('#modes').children].forEach(b=>b.classList.toggle('on',b.dataset.m===m));
+  renderHelper(); need=true;
+});
+$('#ops').addEventListener('click',e=>{
+  const o=e.target.dataset.o; if(o==null)return;
+  op=+o; [...$('#ops').children].forEach(b=>b.classList.toggle('on',b.dataset.o===o));
+});
+$('#brush').onchange=e=>{brush=+e.target.value;};
+$('#tsel').onchange=e=>{tsel=+e.target.value;};
+$('#trails').onchange=()=>{need=true;};
+$('#pause').onclick=()=>{paused=!paused;$('#pause').textContent=t(paused?'resume':'pause');};
+$('#lang').addEventListener('click',e=>{const l=e.target.dataset.l;if(l&&l!==lang)setLang(l);});
+$('#hold').onchange=e=>{
+  const z=G.zones[sel]; if(!z)return;
+  z.hold=clampI(parseInt(e.target.value,10)||0,0,3600); e.target.value=z.hold; changed();
+};
+$('#zsave').onclick=()=>saveMany([sel]);
+$('#zrevert').onclick=()=>{
+  const z=G.zones[sel]; z.cells=z.orig.slice(); z.hold=z.holdOrig; z.name=z.nameOrig;
+  $('#hold').value=z.hold; $('#zname').value=z.name; syncName(); changed();
+};
+function syncName(){const li=$('#zl').children[sel]; if(li)li.querySelector('.nm').textContent=G.zones[sel].name;}
+$('#zname').oninput=e=>{
+  const z=G.zones[sel]; if(!z||z.ign)return;
+  z.name=e.target.value.trim()||z.nameOrig; syncName(); changed();
+};
+$('#fsave').onclick=async()=>{
+  const on=parseInt($('#fon').value,10),win=parseInt($('#fwin').value,10),hold=parseInt($('#fhold').value,10);
+  if(!(win>=1&&win<=32)||!(on>=1&&on<=win)||!(hold>=0&&hold<=3600)){
+    toast(t('to_fbad'),1);return;}
+  try{
+    if(!DEMO){
+      const r=await fetch('/api/settings',{method:'POST',body:`${on},${win},${hold}`});
+      if(!r.ok)throw new Error('HTTP '+r.status);
+    }
+    toast(t('to_fok'));
+  }catch(e){toast(t('to_fail',e.message),1);}
+};
+$('#zclear').onclick=()=>{G.zones[sel].cells.fill(0);changed();};
+$('#saveall').onclick=()=>saveMany(G.zones.map((z,i)=>z._d?i:-1).filter(i=>i>=0));
+
+/* ---------- отрисовка ---------- */
+function draw(){
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  ctx.fillStyle='#f7f8f3'; ctx.fillRect(0,0,cw,ch);
+  const cs=G.cell*K;
+
+  // сектор обзора радара: ±60°, до 6 м
+  const ox=X(0),oy=Y(0);
+  ctx.beginPath(); ctx.moveTo(ox,oy);
+  ctx.arc(ox,oy,6000*K,-Math.PI/2-Math.PI/3,-Math.PI/2+Math.PI/3); ctx.closePath();
+  ctx.fillStyle='rgba(31,94,255,.055)'; ctx.fill();
+
+  // зоны
+  G.zones.forEach((z,zi)=>{
+    const col=z.ign?ZIGN:PAL[zi%PAL.length],live=S.z[zi]&&S.z[zi].o;
+    ctx.globalAlpha=zi===sel?(live?.62:.38):(live?.5:.2);
+    ctx.fillStyle=col;
+    for(let r=0;r<G.rows;r++)for(let c=0;c<G.cols;c++){
+      if(z.cells[r*G.cols+c])ctx.fillRect(c*cs-.4,ch-(r+1)*cs-.4,cs+.8,cs+.8);
+    }
+  });
+  ctx.globalAlpha=1;
+
+  // сетка: клетки тонко, метры крупнее
+  ctx.lineWidth=1;
+  ctx.strokeStyle='rgba(28,38,48,.07)'; ctx.beginPath();
+  for(let c=0;c<=G.cols;c++){const x=Math.round(c*cs)+.5;ctx.moveTo(x,0);ctx.lineTo(x,ch);}
+  for(let r=0;r<=G.rows;r++){const y=Math.round(ch-r*cs)+.5;ctx.moveTo(0,y);ctx.lineTo(cw,y);}
+  ctx.stroke();
+  ctx.strokeStyle='rgba(28,38,48,.20)'; ctx.beginPath();
+  for(let m=Math.ceil(-G.w/2/1000);m<=G.w/2/1000;m++){const x=Math.round(X(m*1000))+.5;ctx.moveTo(x,0);ctx.lineTo(x,ch);}
+  for(let m=0;m<=G.d/1000;m++){const y=Math.round(Y(m*1000))+.5;ctx.moveTo(0,y);ctx.lineTo(cw,y);}
+  ctx.stroke();
+  ctx.fillStyle='#68757f'; ctx.font='12px '+getComputedStyle(document.body).fontFamily;
+  for(let m=1;m<=G.d/1000;m++){ctx.fillText(m+' '+t('u_m'),5,Y(m*1000)-4);}
+  for(let m=Math.ceil(-G.w/2/1000);m<=G.w/2/1000;m++){if(m)ctx.fillText((m>0?'+':'')+m,X(m*1000)+4,ch-5);}
+
+  // границы сектора
+  ctx.save(); ctx.setLineDash([6,5]); ctx.strokeStyle='rgba(31,94,255,.5)'; ctx.lineWidth=1.2;
+  ctx.beginPath(); ctx.moveTo(ox,oy);
+  ctx.arc(ox,oy,6000*K,-Math.PI/2-Math.PI/3,-Math.PI/2+Math.PI/3); ctx.closePath(); ctx.stroke(); ctx.restore();
+
+  // радар
+  ctx.fillStyle='#1c2630'; ctx.beginPath(); ctx.moveTo(ox-9,ch); ctx.lineTo(ox+9,ch); ctx.lineTo(ox,ch-11); ctx.fill();
+
+  // клетка под курсором
+  if(hover>=0){
+    const c=hover%G.cols,r=(hover/G.cols)|0;
+    ctx.strokeStyle='#1c2630'; ctx.lineWidth=1.5;
+    if(mode==='paint'){
+      ctx.strokeRect((c-brush)*cs+1,ch-(r+brush+1)*cs+1,(2*brush+1)*cs-2,(2*brush+1)*cs-2);
+    }else ctx.strokeRect(c*cs+1,ch-(r+1)*cs+1,cs-2,cs-2);
+  }
+
+  // прямоугольник
+  const ra=drag&&drag.a?drag:(rectA?{a:rectA,b:targetPoint()||rectA}:null);
+  if(mode==='rect'&&ra){
+    const q=rectCells(ra.a,ra.b);
+    ctx.strokeStyle=op?'#1f5eff':'#c62a3a'; ctx.lineWidth=2; ctx.setLineDash([6,4]);
+    ctx.strokeRect(q.c0*cs,ch-(q.r1+1)*cs,(q.c1-q.c0+1)*cs,(q.r1-q.r0+1)*cs); ctx.setLineDash([]);
+  }
+
+  // многоугольник
+  if(mode==='poly'&&poly.length){
+    ctx.strokeStyle=op?'#1f5eff':'#c62a3a'; ctx.lineWidth=2;
+    ctx.beginPath(); poly.forEach((p,i)=>i?ctx.lineTo(X(p.x),Y(p.y)):ctx.moveTo(X(p.x),Y(p.y)));
+    if(poly.length>2){ctx.setLineDash([5,5]);ctx.lineTo(X(poly[0].x),Y(poly[0].y));}
+    ctx.stroke(); ctx.setLineDash([]);
+    poly.forEach((p,i)=>{ctx.fillStyle=i?'#fff':(op?'#1f5eff':'#c62a3a');ctx.beginPath();ctx.arc(X(p.x),Y(p.y),i?4.5:6,0,7);ctx.fill();ctx.stroke();});
+  }
+
+  // цели
+  const showTr=$('#trails').checked;
+  S.t.forEach((t,i)=>{
+    if(!t.a)return;
+    if(showTr){
+      const tr=trails[i];
+      for(let k=1;k<tr.length;k++){
+        ctx.strokeStyle=`rgba(224,36,94,${k/tr.length*.55})`; ctx.lineWidth=2;
+        ctx.beginPath(); ctx.moveTo(X(tr[k-1].x),Y(tr[k-1].y)); ctx.lineTo(X(tr[k].x),Y(tr[k].y)); ctx.stroke();
+      }
+    }
+    const px=X(t.x),py=Y(t.y);
+    ctx.fillStyle='rgba(224,36,94,.18)'; ctx.beginPath(); ctx.arc(px,py,16,0,7); ctx.fill();
+    ctx.fillStyle='#e0245e'; ctx.strokeStyle='#fff'; ctx.lineWidth=2.5;
+    ctx.beginPath(); ctx.arc(px,py,7,0,7); ctx.fill(); ctx.stroke();
+    ctx.fillStyle='#1c2630'; ctx.font='600 13px '+getComputedStyle(document.body).fontFamily;
+    ctx.fillText(String(i+1),px+12,py-10);
+  });
+}
+function loop(){ if(need&&G){draw();need=false;} requestAnimationFrame(loop); }
+
+/* ---------- опрос радара ---------- */
+function pushTrails(){
+  S.t.forEach((t,i)=>{const tr=trails[i];if(t.a){tr.push({x:t.x,y:t.y});if(tr.length>40)tr.shift();}else tr.length=0;});
+}
+async function poll(){
+  if(!paused){
+    try{
+      if(DEMO)S=demoState();
+      else{
+        const ac=new AbortController(),to=setTimeout(()=>ac.abort(),1500);
+        const r=await fetch('/api/state',{cache:'no-store',signal:ac.signal});
+        clearTimeout(to); S=await r.json();
+      }
+      online=true; pushTrails(); trackEvents();
+    }catch(e){online=false;}
+    need=true; updateSide();
+  }
+  setTimeout(poll,100);
+}
+
+/* ---------- демо без устройства (открыть ui.html?demo) ---------- */
+function demoZones(){
+  const cols=30,rows=30,mk=(f)=>{let s='';for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){const x=-3000+(c+.5)*200,y=(r+.5)*200;s+=f(x,y)?'1':'0';}return s;};
+  return {cols,rows,cell:200,w:6000,d:6000,cfg:{on:3,win:10,hold:10},ignore:mk((x,y)=>x>2000&&y<1000),zones:[
+    {name:t('demo')[0],hold:10,cells:mk((x,y)=>x>-2200&&x<-200&&y>1800&&y<3000)},
+    {name:t('demo')[1],hold:20,cells:mk((x,y)=>x>800&&x<2400&&y>3200&&y<4400)},
+    {name:t('demo')[2],hold:3,cells:mk((x,y)=>false)}]};
+}
+function demoState(){
+  const t=performance.now()/1000;
+  const raw=[{x:Math.sin(t*.45)*2000-300,y:3000+Math.cos(t*.31)*1700},{x:1500+Math.cos(t*.5)*500,y:3800+Math.sin(t*.7)*400},null];
+  const tg=raw.map(p=>p?{x:Math.round(p.x),y:Math.round(p.y),v:Math.round(Math.cos(t)*30),r:360,a:1}:{x:0,y:0,v:0,r:0,a:0});
+  const z=G?G.zones.filter(zz=>!zz.ign).map(zz=>{let c=0;tg.forEach(q=>{if(q.a){const i=cellAt(q.x,q.y);if(i>=0&&zz.cells[i])c++;}});return {o:c?1:0,c,h:c?8:0};}):[];
+  return {b:'demo',age:20,fps:10,p:1,gh:8,win:10,on:3,hold:10,ga:120,n:tg.filter(q=>q.a).length,ok:1234,bad:0,skip:31,gap:130,lag:32,t:tg.map(q=>({...q,s:q.a?1:0})),z};
+}
+
+/* ---------- старт ---------- */
+applyStatic(); $('#stat').textContent=t('connecting');
+new ResizeObserver(resize).observe($('#stage'));
+loadZones().then(()=>{poll();loop();}).catch(e=>{
+  $('#stat').textContent=t('st_load_fail')+e.message;
+});
+})();
+</script>
+</body>
+</html>
+)HTML";
+
+}  // namespace ld2450_zones
+}  // namespace esphome

@@ -1,0 +1,84 @@
+esphome:
+  name: ld2450-zones
+
+esp32:
+  board: esp32-c3-devkitm-1
+  framework:
+    type: esp-idf
+
+# GPIO20/21
+logger:
+  hardware_uart: USB_SERIAL_JTAG
+
+api:
+  encryption:
+    key: !secret ld2450_zones__encryption_key
+ota:
+  - platform: esphome
+    encryption:
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+mqtt:
+  broker: !secret mqtt_host
+  id: mqtt_client  
+
+external_components:
+  - source:
+      type: local
+      path: /config/esphome/components/
+
+uart:
+  id: radar_uart
+  tx_pin: GPIO21
+  rx_pin: GPIO20
+  baud_rate: 256000
+  rx_buffer_size: 512
+
+bluetooth_proxy:
+  active: true  # allows outbound connections from HA to devices.  
+  
+ld2450_zones:
+  uart_id: radar_uart
+  web_port: 80            
+  multi_target: true      # enable multiple targets mode at startup
+  area_width: 6000        # mm, the field is symmetrical relative to the radar
+  area_depth: 6000        # mm, forward from the radar
+  cell_size: 200          # mm, cell size in the zone editor
+  enter_frames: 3         # the zone is enabled if the target is detected in it at least 3 times
+  enter_window: 10        # ...from the last 10 frames (~1 s). Then it is corrected in the web interface.
+  hold: 10s               # holding the general presence
+ 
+  presence:
+    name: "Presence"
+  target_count:
+    name: "Targets count"
+ 
+# Zone slots. Draw the shape of each zone in the web interface,
+# here only names and entities for Home Assistant.
+  zones:
+    - label: "Zone 1"
+      hold: 30s
+      presence:
+        name: "Zone 1"
+      count:
+        name: "Zone 1 count"
+    - label: "Zone 2"
+      hold: 60s
+      presence:
+        name: "Zone 2"
+    - label: "Zone 3"
+      hold: 3s
+      presence:
+        name: "Zone 3"
+    - label: "Zone 4"
+      presence:
+        name: "Zone 4"
+    - label: "Zone 5"
+      presence:
+        name: "Zone 5"  
+      count:
+        name: "Zone 5 count"  
+ 
