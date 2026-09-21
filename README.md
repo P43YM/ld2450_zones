@@ -1,6 +1,7 @@
 # ld2450_zones
 
-<img width="1463" height="1163" alt="web" src="https://github.com/user-attachments/assets/d2c08142-effd-4e66-8e83-87c9f0df8bda" />
+<img width="825" height="652" alt="Снимок экрана 2026-09-21 182104" src="https://github.com/user-attachments/assets/5cb3e847-ff2c-47e6-b0a6-597a2b8be88b" />
+
 
 Smart presence zones for the **HLK-LD2450** mmWave radar, running right on your ESP32.
 
