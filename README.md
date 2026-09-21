@@ -1,4 +1,4 @@
-[![ru](https://img.shields.io/badge/lang-ru-red.svg)](README-ru.md)
+![English language badge](https://img.shields.io/badge/lang-en-blue.svg) [![ru](https://img.shields.io/badge/lang-ru-red.svg)](README-ru.md)
 
 # ld2450_zones
 
