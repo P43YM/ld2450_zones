@@ -1,4 +1,4 @@
-[![en](https://img.shields.io/badge/lang-ru-red.svg)](https://github.com/P43YM/ld2450_zones/blob/2f5e8fb6ca32e86493cdcd691853befd1efc61ba/README-ru.md)
+[![ru](https://img.shields.io/badge/lang-ru-red.svg)](https://github.com/P43YM/ld2450_zones/blob/a512967a4f5b25283ffa471a3b6c47024f79634d/README-ru.md)
 
 # ld2450_zones
 
