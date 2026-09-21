@@ -61,6 +61,10 @@ esp32:
   framework:
     type: esp-idf
 
+external_components:
+  - source: github://P43YM/ld2450_zones
+    components: [ ld2450_zones ]
+
 logger:
   hardware_uart: USB_SERIAL_JTAG   # frees GPIO20/21 for the radar
 
