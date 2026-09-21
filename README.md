@@ -1,3 +1,5 @@
+[![en](https://img.shields.io/badge/lang-ru-red.svg)](https://github.com/P43YM/ld2450_zones/blob/2f5e8fb6ca32e86493cdcd691853befd1efc61ba/README-ru.md)
+
 # ld2450_zones
 
 <img width="825" height="652" alt="Снимок экрана 2026-09-21 182104" src="https://github.com/user-attachments/assets/5cb3e847-ff2c-47e6-b0a6-597a2b8be88b" />
