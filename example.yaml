@@ -26,7 +26,7 @@ mqtt:
   id: mqtt_client  
 
 external_components:
-  - source: github://P43YM/ld2450_zones@v1.0.0
+  - source: github://P43YM/ld2450_zones
     components: [ ld2450_zones ]
 
 uart:
