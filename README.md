@@ -130,7 +130,7 @@ A zone's *shape* isn't in the YAML: you draw it in the editor. The number of zon
 
 ## The web editor
 
-Open `http://<device-ip>:8080/`.
+Open `http://<device-ip>/`.
 
 - **The field.** The radar sits at the bottom centre and the dashed wedge is its field of view (about 60 degrees to each side). Metre lines run over the cell grid, and targets show up with little trails behind them.
 - **Tools.** Brush (1x1, 3x3 or 5x5), Rectangle and Polygon, each in Add or Erase mode.
