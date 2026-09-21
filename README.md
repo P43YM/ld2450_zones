@@ -104,7 +104,7 @@ ld2450_zones:
 
 [`example.yaml`](example.yaml) has a fuller version with counters and name sensors.
 
-Flash it, open `http://<device-ip>:8080/`, and start drawing.
+Flash it, open `http://<device-ip>/`, and start drawing.
 
 ## Configuration
 
