@@ -113,7 +113,7 @@ Flash it, open `http://<device-ip>/`, and start drawing.
 | Option | Default | What it does |
 |--------|---------|--------------|
 | `uart_id` | required | The UART wired to the radar (256000 baud, both pins). |
-| `web_port` | `8080` | Port of the web editor. |
+| `web_port` | `80` | Port of the web editor. |
 | `multi_target` | `true` | Switches the radar to multi-target tracking a few seconds after boot. Set to `false` if you'd rather manage that yourself. |
 | `area_width` | `6000` | Width of the zone field in mm, centred on the radar (1000 to 10000). |
 | `area_depth` | `6000` | Depth of the zone field in mm, going forward from the radar (1000 to 8000). |
