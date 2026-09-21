@@ -36,8 +36,8 @@ uart:
   baud_rate: 256000
   rx_buffer_size: 512
 
-bluetooth_proxy:
-  active: true  # allows outbound connections from HA to devices.  
+# bluetooth_proxy:
+#   active: true  # allows outbound connections from HA to devices.  
   
 ld2450_zones:
   uart_id: radar_uart
