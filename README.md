@@ -128,6 +128,9 @@ Flash it, open `http://<device-ip>/`, and start drawing.
 
 A zone's *shape* isn't in the YAML: you draw it in the editor. The number of zone *slots* is fixed when you build the firmware, because Home Assistant entities are static.
 
+<img width="647" height="404" alt="Снимок экрана 2026-09-21 173949" src="https://github.com/user-attachments/assets/52cc0872-7aa3-4ba9-9f7d-fda11c13c543" />
+
+
 ## The web editor
 
 Open `http://<device-ip>/`.
