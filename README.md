@@ -1,8 +1,10 @@
 # ld2450_zones
 
+docs/img/web.png
+
 Smart presence zones for the **HLK-LD2450** mmWave radar, running right on your ESP32.
 
-Most LD2450 setups stream raw coordinates to Home Assistant and let it sort things out. This [ESPHome](https://esphome.io) component does it the other way around: the ESP reads every radar frame (about 10 per second), filters out the noise, checks where each target is standing against **zones of any shape**, and tells Home Assistant only when something actually changes. You draw the zones in a web editor served by the ESP itself, with a live view of the targets walking around. You can draw multiple segments in one zone, and overlap them with other zones. Simple and effective. No additional scripts and graphs needed.
+An ESPHome component that turns the LD2450 into a set of presence zones, with all the logic on the ESP. The ESP reads every radar frame (about 10 per second), filters out the noise, checks where each target is standing against **zones of any shape**, and tells Home Assistant only when something actually changes. You draw the zones in a web editor served by the ESP itself, with a live view of the targets walking around. You can draw multiple segments in one zone, and overlap them with other zones. Simple and effective. No additional scripts and graphs needed.
 
 Runs on ESP32 boards with the ESP-IDF framework,example is built for the ESP32-C3 Super Mini.
 
